@@ -20,7 +20,10 @@ print(f"Bot started with identity: {encode_npub(pubkey)}")
 
 
 def activation_condition(message: dict) -> bool:
-    return message["content"].startswith(activation_cmd) or pubkey in message["content"]
+    return (
+        message["content"].startswith(activation_cmd)
+        or encode_npub(pubkey) in message["content"]
+    )
 
 
 async def main():
