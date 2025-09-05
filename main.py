@@ -20,9 +20,6 @@ print(f"Bot started with identity: {encode_npub(pubkey)}")
 
 
 def activation_condition(message: dict) -> bool:
-    print(
-        f"Message received from {encode_npub(message['pubkey'])}: {message['content'][:50]}{'...' if len(message['content']) > 50 else ''}"
-    )
     return message["content"].startswith(activation_cmd) or pubkey in message["content"]
 
 
@@ -31,6 +28,7 @@ async def main():
         relays=relays, filters=[{"kinds": [1]}], since_seconds=1
     ):
         if activation_condition(message):
+            print(f"{message['content']} triggered activation")
             response = await generate_ai_response(
                 message["content"],
             )
