@@ -1,0 +1,11 @@
+[project]
+name = "nostr-bot-python"
+version = "0.1.0"
+description = "Nostr bot in Python"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "coincurve>=21.0.0", # cryptography
+    "httpx-ws>=0.7.2",   # websockets
+    "openai>=1.106.1",   # ai
+]
