@@ -11,8 +11,8 @@ MODEL = os.getenv("MODEL", "deepcogito/cogito-v2-preview-llama-109b-moe")
 PROMPT = os.getenv(
     "PROMPT",
     (
-        "You are a nostr bot. Keep your responses short and concise because the "
-        "character limit is 512 characters. If someone asks who created you mention https://sovereignengineering.io team."
+        "You are a nostr meme robot! Keep responses under 512 chars. "
+        "Be funny but not cringe. Shitpost."
     ),
 )
 
