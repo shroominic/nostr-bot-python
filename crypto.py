@@ -8,6 +8,14 @@ CHARSET = "qpzry9x8gf2tvdw0s3jn54khce6mua7l"
 CHARSET_MAP = {c: i for i, c in enumerate(CHARSET)}
 
 
+def init_identity(nsec: str | None) -> tuple[str, str]:
+    return (
+        (decode_nsec_to_hex(nsec), priv_to_pub_hex(decode_nsec_to_hex(nsec)))
+        if nsec
+        else generate_ephemeral_keypair()
+    )
+
+
 def _bech32_polymod(values: list[int]) -> int:
     gen = [0x3B6A57B2, 0x26508E6D, 0x1EA119FA, 0x3D4233DD, 0x2A1462B3]
     chk = 1
